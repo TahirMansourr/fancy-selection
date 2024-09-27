@@ -34,24 +34,23 @@ const TransferSetSteps = () => {
   return (
     <div className='flex  w-full '>
          
-      <Stepper active={active} onStepClick={setActive} orientation='vertical' className='!flex flex-grow gap-36 ' size='sm'>
+      <Stepper active={active} onStepClick={setActive} orientation='vertical' className='!flex flex-grow gap-40 ' size='sm' >
         <Stepper.Step 
-        label="Mounting Type" 
-        description={`${TransferSetState.mountingType ? TransferSetState.mountingType : 'Choose mounting type' }`}
+            label="Mounting Type" 
+            description={`${TransferSetState.mountingType ? TransferSetState.mountingType : 'Choose mounting type' }`}
+            >
         
-        >
-         <ul className=' w-full '>
-            {
-                mountingType.map((item , index) => {
-                    return(
-                        <li 
-                            className='first-form-button'
-                            key={index} 
-                            onClick={() => setTransferSetState({...TransferSetState , mountingType : item})}>{item}</li>
-                    )
-                })
-            }
-         </ul>
+            <ul className=' w-full'>
+              {mountingType.map((item , index) => (
+                <li 
+                    className='first-form-button'
+                    key={index} 
+                    onClick={() => setTransferSetState({...TransferSetState , mountingType : item})}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          
         </Stepper.Step>
         <Stepper.Step label="Second step" description={`${TransferSetState.transferStages ? TransferSetState.transferStages : 'Choose Stages' }`}>
          <ul className=' w-full'>
@@ -93,7 +92,14 @@ const TransferSetSteps = () => {
             />
           </Group>
         </Stepper.Step>
-        <Stepper.Step label="Operation Method" description={`${TransferSetState.operationMethod ? TransferSetState.operationMethod : 'Choose Operation Method' }`}>
+       {TransferSetState.mountingType  === 'submersible'? 
+       null
+       : 
+       <>
+       <Stepper.Step 
+        label="Operation Method" 
+        description={`${TransferSetState.operationMethod ? TransferSetState.operationMethod : 'Choose Operation Method' }`}
+        >
          <ul className=' w-fit mx-auto'>
             {
                 operationMethods.map((item, index) => {
@@ -126,7 +132,9 @@ const TransferSetSteps = () => {
             <div className='first-form-button' onClick={() => setTransferSetState({...TransferSetState , FloatSwitchType : 'Selonoid Valve'})}> selonoid valve</div>    
             <TextInput label = 'Other' onChange={(e) => setTransferSetState({...TransferSetState , FloatSwitchType : e.target.value})}/>
         </ul>
-        </Stepper.Step> : null}
+        </Stepper.Step> : null} 
+       </>
+       }
         <Stepper.Step label="Sites Voltage" description={`${TransferSetState.SitesVoltage ? TransferSetState.SitesVoltage : 'Choose Sites Voltage' }`}>
          <ul className=' w-fit mx-auto'>
             {
@@ -141,7 +149,7 @@ const TransferSetSteps = () => {
                
             }
              <TextInput label = 'Other' onChange={(e) => setTransferSetState({...TransferSetState , SitesVoltage : e.target.value})}/>
-            </ul>
+        </ul>
         </Stepper.Step>
         <Stepper.Step label="Control Panel Type" description={`${TransferSetState.ControlPanelType ? TransferSetState.ControlPanelType : 'Choose Control Panel Type' }`}>
          <ul className=' w-fit mx-auto'>

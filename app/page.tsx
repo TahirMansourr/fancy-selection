@@ -8,7 +8,7 @@ export default function Home() {
   const [selectedPump , setSelectedPump] = React.useState<string>('')
 
   return (
-    <main className=" flex w-full  px-10 justify-center mt-10">
+    <main className=" flex w-full  px-10 justify-center pt-2">
       <>
        { !selectedPump ?  
        <section className=" rounded-lg shadow-lg p-4 flex flex-col min-w-96">
