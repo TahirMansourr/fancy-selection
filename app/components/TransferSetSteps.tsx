@@ -95,7 +95,7 @@ const TransferSetSteps = () => {
        {TransferSetState.mountingType  === 'submersible'? 
        null
        : 
-       <>
+       
        <Stepper.Step 
         label="Operation Method" 
         description={`${TransferSetState.operationMethod ? TransferSetState.operationMethod : 'Choose Operation Method' }`}
@@ -113,6 +113,11 @@ const TransferSetSteps = () => {
             }
             </ul>
         </Stepper.Step>
+}
+{TransferSetState.mountingType  === 'submersible'? 
+       null
+       : 
+       
         <Stepper.Step label="Float Switch" description={`${TransferSetState.FloatSwtich ? TransferSetState.FloatSwtich : 'Choose Operation Method' }`}>
          <ul className=' w-fit mx-auto'>
             {
@@ -127,13 +132,15 @@ const TransferSetSteps = () => {
             }
             </ul>
         </Stepper.Step>
-        { TransferSetState.FloatSwtich === 'Yes' ?<Stepper.Step label="Float Switch type" description={`${TransferSetState.FloatSwitchType ? TransferSetState.FloatSwitchType : 'Choose Float Switch Type' }`}>
+}
+        { TransferSetState.FloatSwtich === 'Yes' ?
+        <Stepper.Step label="Float Switch type" description={`${TransferSetState.FloatSwitchType ? TransferSetState.FloatSwitchType : 'Choose Float Switch Type' }`}>
          <ul className=' w-fit mx-auto'>
             <div className='first-form-button' onClick={() => setTransferSetState({...TransferSetState , FloatSwitchType : 'Selonoid Valve'})}> selonoid valve</div>    
             <TextInput label = 'Other' onChange={(e) => setTransferSetState({...TransferSetState , FloatSwitchType : e.target.value})}/>
         </ul>
-        </Stepper.Step> : null} 
-       </>
+        </Stepper.Step> : null 
+       
        }
         <Stepper.Step label="Sites Voltage" description={`${TransferSetState.SitesVoltage ? TransferSetState.SitesVoltage : 'Choose Sites Voltage' }`}>
          <ul className=' w-fit mx-auto'>
