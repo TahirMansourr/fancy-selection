@@ -176,9 +176,7 @@ const FireFightingSetSteps = () => {
                     )
                 })
                
-            }
-             <TextInput label = 'Other' onChange={(e) => setFireFightingSetState({...FireFightingSetState , SitesVoltage : e.target.value})}/>
-            </ul>
+            }            </ul>
         </Stepper.Step>: null}
         <Stepper.Step label="Additional Requirements" >
          <div className=' flex flex-grow w-full mx-auto '>
