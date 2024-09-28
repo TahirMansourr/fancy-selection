@@ -150,7 +150,7 @@ const TransferSetSteps = () => {
                         <li
                             className='first-form-button'
                             key={index}
-                            onClick={() => setTransferSetState({...TransferSetState, FloatSwtich : item})}>{item}</li>
+                            onClick={() => setTransferSetState({...TransferSetState, SitesVoltage : item})}>{item}</li>
                     )
                 })
                
