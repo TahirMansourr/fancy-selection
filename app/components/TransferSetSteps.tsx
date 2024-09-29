@@ -6,8 +6,8 @@ const TransferSetSteps = () => {
     const [TransferSetState , setTransferSetState] = useState({
         mountingType : '' ,
         transferStages : '',
-        head : 0,
-        flowRate : 0,
+        head : '',
+        flowRate : '',
         headMesuringUnit : '',
         FlowRateMesuringUnit : '',
         operationMethod : '',
@@ -66,30 +66,57 @@ const TransferSetSteps = () => {
             }
             </ul>
         </Stepper.Step>
-        <Stepper.Step label="Select Head And Flow Rate" description={`Head :${TransferSetState.head ? TransferSetState.head : '0' } | Flow Rate : ${TransferSetState.flowRate ? TransferSetState.flowRate : '0' } `}>
+        <Stepper.Step label="Select Head And Flow Rate" description={`Head : ${TransferSetState.head ? TransferSetState.head : '0' } ${TransferSetState.headMesuringUnit} | Flow Rate : ${TransferSetState.flowRate ? TransferSetState.flowRate : '0' } ${TransferSetState.FlowRateMesuringUnit} `}>
           <Group justify='center' flex= 'col'>
-            <TextInput
-                label = 'Head'
-                rightSection = {
-                    <Select
-                        data={[{value : 'Meters' , label : 'Meters'} ,{value : 'Yards' , label : 'Yards'} ]}
+          <TextInput
+                    label='Head'
+                    onChange={(e) =>
+                        setTransferSetState({
+                        ...TransferSetState,
+                        head: e.target.value,
+                        })
+                    }
+                    w={'100%'}
+                    value={TransferSetState.head}
+                    rightSection={
+                        <Select
+                        data={[
+                            { value: 'Meters', label: 'Meters' },
+                            { value: 'Yards', label: 'Yards' },
+                        ]}
                         defaultSearchValue='Meters'
                         value={TransferSetState.headMesuringUnit ? TransferSetState.headMesuringUnit : 'Meters'}
-                        onChange={(value , option) => setTransferSetState({...TransferSetState , headMesuringUnit :  option.value})}
+                        onChange={(value, option) => setTransferSetState({ ...TransferSetState, headMesuringUnit: option.label })}
+                        />
+                    }
+                    rightSectionWidth={'fit'}
                     />
-                }
-                />
-            <TextInput
-                label = 'Flow Rate'
-                rightSection = {
-                    <Select
-                        data={[{value : 'GPM' , label : 'GPM'} , {value : 'LPM' , label : 'LPM'} , {value : 'LPS' , label : 'LPS'} ]}
+
+                    <TextInput
+                    label='Flow Rate'
+                    value={TransferSetState.flowRate}
+                    onChange={(e) =>
+                        setTransferSetState({
+                        ...TransferSetState,
+                        flowRate: e.target.value,
+                        })
+                    }
+                    w={'100%'}
+                    rightSectionWidth={'fit'}
+                    rightSection={
+                        <Select
+                        data={[
+                            { value: 'GPM', label: 'GPM' },
+                            { value: 'LPM', label: 'LPM' },
+                            { value: 'LPS', label: 'LPS' },
+                        ]}
                         defaultSearchValue='GPM'
                         value={TransferSetState.FlowRateMesuringUnit ? TransferSetState.FlowRateMesuringUnit : 'GPM'}
-                        onChange={(_value , option) => setTransferSetState({...TransferSetState , FlowRateMesuringUnit :  option.value})}
+                        onChange={(_value, option) => setTransferSetState({ ...TransferSetState, FlowRateMesuringUnit: option.label })}
+                        />
+                    }
                     />
-                }
-            />
+
           </Group>
         </Stepper.Step>
        {TransferSetState.mountingType  === 'submersible'? 

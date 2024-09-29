@@ -7,8 +7,8 @@ const FireFightingSetSteps = () => {
         operationalSetup : '' ,
         pumpConfiguration : '',
         pumpMotor : '',
-        head : 0,
-        flowRate : 0,
+        head : '',
+        flowRate : '',
         headMesuringUnit : '',
         FlowRateMesuringUnit : '',
         WithControlPanel : '',
@@ -125,10 +125,19 @@ const FireFightingSetSteps = () => {
         </Stepper.Step>
           : null
         }
-        <Stepper.Step label="Select Head And Flow Rate" description={`Head :${FireFightingSetState.head ? FireFightingSetState.head : '0' } | Flow Rate : ${FireFightingSetState.flowRate ? FireFightingSetState.flowRate : '0' } `}>
+        <Stepper.Step label="Select Head And Flow Rate" description={`Head : ${FireFightingSetState.head ? FireFightingSetState.head : '0' } ${FireFightingSetState.headMesuringUnit} | Flow Rate : ${FireFightingSetState.flowRate ? FireFightingSetState.flowRate : '0' } ${FireFightingSetState.FlowRateMesuringUnit} `}>
           <Group justify='center' flex= 'col'>
             <TextInput
                 label = 'Head'
+                onChange={(e) =>
+                  setFireFightingSetState({
+                  ...FireFightingSetState,
+                  head: e.target.value,
+                  })
+              }
+              w={'100%'}
+              value={FireFightingSetState.head}
+              rightSectionWidth={'fit'}
                 rightSection = {
                     <Select
                         data={[{value : 'Meters' , label : 'Meters'} ,{value : 'Yards' , label : 'Yards'} ]}
@@ -140,6 +149,15 @@ const FireFightingSetSteps = () => {
                 />
             <TextInput
                 label = 'Flow Rate'
+                onChange={(e) =>
+                  setFireFightingSetState({
+                  ...FireFightingSetState,
+                  flowRate: e.target.value,
+                  })
+              }
+              w={'100%'}
+              value={FireFightingSetState.flowRate}
+              rightSectionWidth={'fit'}
                 rightSection = {
                     <Select
                         data={[{value : 'GPM' , label : 'GPM'} , {value : 'LPM' , label : 'LPM'} , {value : 'LPS' , label : 'LPS'} ]}
