@@ -78,7 +78,7 @@ const FireFightingSetSteps = () => {
         </Stepper.Step>
         {
           FireFightingSetState.pumpConfiguration === "End Suction" || FireFightingSetState.pumpConfiguration === 'Split Case' ? 
-        <Stepper.Step label="Motor Type" description={`${FireFightingSetState.pumpMotor ? FireFightingSetState.pumpMotor : 'Choose Motor Type' }`}>
+        <Stepper.Step label="Preferred Power Source" description={`${FireFightingSetState.pumpMotor ? FireFightingSetState.pumpMotor : 'Choose Preferred Power Source' }`}>
           <ul className=' w-full'>
              {
                  FireFightingSetState.operationalSetup === 'Single Pump' ?
@@ -113,7 +113,7 @@ const FireFightingSetSteps = () => {
         }
         {
           FireFightingSetState.pumpConfiguration === "Vertical"? 
-        <Stepper.Step label="Motor Type" description={`${FireFightingSetState.pumpMotor ? FireFightingSetState.pumpMotor : 'Choose Motor Type' }`}>
+        <Stepper.Step label="Prefered Power Source" description={`${FireFightingSetState.pumpMotor ? FireFightingSetState.pumpMotor : 'Choose Preffered Power Source' }`}>
           <ul className=' w-full'>
                          <li
                           className='first-form-button'

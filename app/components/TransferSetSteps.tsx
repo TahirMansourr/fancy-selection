@@ -36,8 +36,8 @@ const TransferSetSteps = () => {
          
       <Stepper active={active} onStepClick={setActive} orientation='vertical' className='!flex flex-grow gap-40 ' size='sm' >
         <Stepper.Step 
-            label="Mounting Type" 
-            description={`${TransferSetState.mountingType ? TransferSetState.mountingType : 'Choose mounting type' }`}
+            label="Operational Setup" 
+            description={`${TransferSetState.mountingType ? TransferSetState.mountingType : 'Choose Operational Setup' }`}
             >
         
             <ul className=' w-full'>
@@ -52,7 +52,7 @@ const TransferSetSteps = () => {
             </ul>
           
         </Stepper.Step>
-        <Stepper.Step label="Second step" description={`${TransferSetState.transferStages ? TransferSetState.transferStages : 'Choose Stages' }`}>
+        <Stepper.Step label="Pump Configuration" description={`${TransferSetState.transferStages ? TransferSetState.transferStages : 'Choose Pump Configuration' }`}>
          <ul className=' w-full'>
             {
                 transferStages.map((item, index) => {
