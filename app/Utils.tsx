@@ -1,4 +1,5 @@
 import BoosterSet from "./components/BoosetSet";
+import Circulation from "./components/Circulation";
 import FireFightingSteps from "./components/FireFightingSteps";
 import TransferSetSteps from "./components/TransferSetSteps";
 
@@ -10,8 +11,8 @@ switch (name) {
         return <BoosterSet/>
     case 'Submersible':
         return <BoosterSet/>
-    case 'Domestic':
-        return <TransferSetSteps/>
+    case 'Circulation':
+        return <Circulation/>
     case 'Pool':
         return <TransferSetSteps/>
     case 'Bore Hole':
