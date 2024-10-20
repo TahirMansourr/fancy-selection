@@ -1,7 +1,7 @@
 'use client'
 import React, { Dispatch, SetStateAction } from 'react'
 
-const PumpTypes = ['Fire Fighting' , 'Commercial' , 'Domestic' , 'Pool' , 'Submersible' , 'Bore Hole' , 'Industrial' , 'Transfer Set']
+const PumpTypes = ['Fire Fighting' , 'Booster Set' , 'Domestic' , 'Pool' , 'Submersible' , 'Bore Hole' , 'Industrial' , 'Transfer Set']
 
 const FirstSetOfButtons = ({setSelectedPump} : {setSelectedPump : Dispatch<SetStateAction<string>>}) => {
   return (

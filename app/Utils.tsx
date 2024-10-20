@@ -1,4 +1,4 @@
-import CommercialSteps from "./components/CommercialSteps";
+import BoosterSet from "./components/BoosetSet";
 import FireFightingSteps from "./components/FireFightingSteps";
 import TransferSetSteps from "./components/TransferSetSteps";
 
@@ -6,15 +6,13 @@ export const SelectedStepsToRender = (name : string) => {
 switch (name) {
     case 'Fire Fighting':
         return <FireFightingSteps/>
-    case 'Commercial':
-        return <CommercialSteps/>
+    case 'Booster Set':
+        return <BoosterSet/>
     case 'Submersible':
-        return <CommercialSteps/>
+        return <BoosterSet/>
     case 'Domestic':
         return <TransferSetSteps/>
     case 'Pool':
-        return <TransferSetSteps/>
-    case 'Submersible':
         return <TransferSetSteps/>
     case 'Bore Hole':
         return <TransferSetSteps/>
